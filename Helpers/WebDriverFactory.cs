@@ -2,7 +2,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace WebhookInspectorTests.Helpers
-
 {
     public static class WebDriverFactory
     {
@@ -11,8 +10,8 @@ namespace WebhookInspectorTests.Helpers
             var options = new ChromeOptions();
 
             options.AddArgument("--headless"); // don't open and show browser
-            options.AddArgument("--no-sandbox");
-            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument("--no-sandbox"); // security setting needed in some environments
+            options.AddArgument("--disable-dev-shm-usage"); // prevents memory issues in docker/CI envs
             options.AddArgument("--disable-gpu");
             options.AddArgument("--window-size=1920,1080");
 
